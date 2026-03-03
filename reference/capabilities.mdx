@@ -1,0 +1,365 @@
+---
+title: Capabilities and features
+sidebarTitle: Capabilities
+description: Complete catalog of Meilisearch capabilities across search, database, cloud, self-hosting, and integrations.
+---
+
+This page provides a comprehensive reference of every Meilisearch capability and feature. For a higher-level introduction, see [Features](/getting_started/features).
+
+## Search capabilities
+
+### All searches
+
+These capabilities are available across all search types.
+
+- **[Pagination](/products/full_text_search/pagination)**: Define how results are presented across multiple pages or as infinite scroll, with control over total hits displayed
+- **[Filtering](/products/faceted_search/filter_search_results)**: Filter search results based on custom document attributes
+- **[Distinct/Grouping](/products/full_text_search/distinct_attribute)**: Group results by a distinct attribute to avoid duplication
+- **Retrieve sub-fields**: Extract specific nested fields within documents during searches
+- **[Sorting](/products/faceted_search/sort_search_results)**: Dynamically sort results based on user-defined parameters at query time
+
+### Full-text search
+
+#### Querying
+
+- **Fast search**: Sub-millisecond responses on large datasets
+- **[Search cutoff](/reference/api/settings/get-searchcutoffms)**: Set a maximum time limit for search queries to ensure timely responses
+- **[Tokenizer configuration](/products/full_text_search/tokenization)**: Customize how search queries are broken into tokens
+- **[Dictionaries](/products/full_text_search/tokenization)**: Predefined word lists to improve tokenization accuracy for specific languages or domains
+- **[Custom separators](/products/full_text_search/tokenization)**: Define custom characters that should or should not separate words during tokenization
+- **[Stop words](/products/full_text_search/synonyms)**: Remove common words (e.g., "the", "and") that don't affect search relevance
+- **[Synonyms](/products/full_text_search/synonyms)**: Allow different words with similar meanings to be treated as equivalent
+- **[Split/merge words](/products/full_text_search/query_processing)**: Automatically split or merge words to find valid matches in the dataset
+- **[Prefix matching](/products/full_text_search/query_processing)**: Match partial words as the user types, allowing incomplete query matches
+- **[Typo matching](/products/full_text_search/typo_tolerance_settings)**: Account for potential typos by providing results with close matches to the query
+- **[Phrase search](/products/full_text_search/query_syntax)**: Use double quotes to search for an exact phrase
+- **[Negative search](/products/full_text_search/query_syntax)**: Exclude terms from results using the minus operator
+- **[Placeholder search](/products/full_text_search/query_syntax)**: Return all results when the query is empty
+
+#### Ranking
+
+- **[6 default ranking rules](/products/full_text_search/ranking_rules)**: Results ordered by words, typo, proximity, attribute, sort, and exactness
+- **[Words](/products/full_text_search/ranking_rules)**: Rank by number of matched query terms
+- **[Typo](/products/full_text_search/ranking_rules)**: Rank by number of typos, fewer typos rank higher
+- **[Typo threshold configuration](/products/full_text_search/typo_tolerance_settings)**: Define minimum word size for typo matching
+- **[Disable typo on words/attributes](/products/full_text_search/typo_tolerance_settings)**: Disable typo tolerance for specific words or attributes
+- **[Proximity](/products/full_text_search/ranking_rules)**: Rank by distance between matched terms
+- **[Attribute](/products/full_text_search/attribute_ranking_order)**: Rank according to predefined attribute order
+- **[Sort](/products/faceted_search/sort_search_results)**: Sort by specific criteria defined at query time
+- **[Exactness](/products/full_text_search/ranking_rules)**: Rank by how closely matches align with query terms
+- **[Custom ranking rules](/products/full_text_search/custom_ranking_rules)**: Create custom ranking rules based on specific fields, ascending or descending
+- **[Attribute weight](/products/full_text_search/displayed_searchable_attributes)**: Dynamically adjust importance of different searchable fields
+- **[Ranking score threshold](/products/full_text_search/ranking_score)**: Only return results above a minimum relevance score
+- **[Scoring details](/products/full_text_search/ranking_score)**: Share scoring details for transparency and result ordering adjustments
+
+#### Matching strategy
+
+- **[`last` (default)](/products/full_text_search/matching_strategy)**: Returns documents with all query terms first, progressively removes terms from the end
+- **[`all`](/products/full_text_search/matching_strategy)**: Only returns documents containing all query terms
+- **[`frequency`](/products/full_text_search/matching_strategy)**: Returns all-term matches first, then removes the most frequent terms in the dataset
+
+#### Localization
+
+- **[Multi-language support](/resources/help/language)**: Optimized support for Chinese, Japanese, Hebrew, and Latin alphabet languages
+- **Auto language detection**: Automatically identifies query language and adjusts the search algorithm
+- **[Localized attributes](/products/full_text_search/multilingual-datasets)**: Use language-specific patterns when searching data
+
+#### Result formatting
+
+- **[Cropping](/products/full_text_search/search_result_formatting)**: Return only the relevant portion of data matching the query
+- **[Crop length and marker](/products/full_text_search/search_result_formatting)**: Configure maximum words and truncation symbol for cropped fields
+- **[Highlighting](/products/full_text_search/search_result_formatting)**: Emphasize query matches in search results with customizable tags
+- **[Matches position](/products/full_text_search/search_result_formatting)**: Get byte positions and lengths of matched terms for precise highlighting
+
+### AI search
+
+- **[Semantic search](/products/hybrid_search/overview)**: Search based on meaning rather than keyword matching using embedders
+- **[Vector search](/products/hybrid_search/search_with_user_provided_embeddings)**: Use vector embeddings to find results based on approximate nearest neighbors
+- **Show/hide vectors**: Include or exclude vector embeddings in the search response
+- **[Hybrid search](/products/hybrid_search/getting_started)**: Combine keyword search with semantic search for more accurate results
+- **[Semantic ratio](/products/hybrid_search/getting_started)**: Balance the influence of semantic vs. keyword search
+- **[Image search](/products/multimodal_search/image_search_with_multimodal_embeddings)**: Search documents based on image content using visual embeddings
+- **[Multimodal search](/products/multimodal_search/overview)**: Search across text and images within the same query
+- **[Multi-embedder](/products/hybrid_search/choose_an_embedder)**: Multiple embedding models attached to the same document
+
+### Conversational search
+
+- **[Chat completions](/products/conversational_search/getting_started)**: RAG-powered conversational search using your indexed data
+- **[Multiple LLM providers](/products/conversational_search/chat_tooling_reference)**: OpenAI, Azure OpenAI, Mistral, Google Gemini, vLLM, and custom providers
+- **Streaming responses**: Stream chat responses in real time for a responsive user experience
+- **Chat workspaces**: Configure chat settings per index including description and search parameters
+- **[System prompts](/products/conversational_search/chat_tooling_reference)**: Customize LLM behavior with system-level instructions
+- **[Document templates](/products/conversational_search/chat_tooling_reference)**: Control how indexed documents are presented to the LLM as context
+
+### Personalization
+
+- **[User preference ranking](/products/personalization/overview)**: Re-rank search results based on individual user preferences using AI embeddings
+- **Real-time adaptation**: Adjust results in real time as user preferences evolve
+- **Preference embeddings**: Generate user preference vectors that influence result ranking
+
+### Faceted search
+
+- **[Facet distribution](/products/faceted_search/search_with_facet_filters)**: Get the count of each facet value in search results
+- **Limit values per facet**: Restrict how many values are returned for each facet
+- **Sort facets**: Sort facet values by count or alphabetically
+- **[Search in facets](/products/faceted_search/search_with_facet_filters)**: Search within specific facets to narrow results
+- **Dynamic faceting**: Automatically create facets from indexed data without predefined configuration
+- **[Facet filtering](/products/faceted_search/filter_search_results)**: Filter results based on specific facet values
+- **[Facet operators (AND/OR)](/products/faceted_search/filter_expression_reference)**: Control whether facet selections are restrictive (AND) or inclusive (OR)
+- **[Numeric facets](/products/faceted_search/facet_types)**: Apply facets to numeric fields for range filtering
+- **[Boolean facets](/products/faceted_search/facet_types)**: Filter on true/false attributes
+- **[Date facets](/products/faceted_search/working_with_dates)**: Filter and facet on date fields with timestamp conversion
+
+### Multi-search
+
+- **[Search in multiple indexes](/products/multi_search/multi_search_vs_federated_search)**: Perform a single query across multiple indexes
+- **[Federated search](/products/multi_search/performing_federated_search)**: Combine results from multiple queries into a single ranked list
+- **Federated weight**: Multiplicative factor applied to ranking scores from a specific query
+- **Remote federated search**: Federate search across multiple Meilisearch instances
+- **[Sharding](/products/multi_search/implement_sharding)**: Distribute documents across multiple Meilisearch instances for horizontal scaling
+
+### Geo search
+
+- **[Geo radius](/products/geo_search/filtering)**: Filter results within a specified radius from a geographic point
+- **[Geo bounding box](/products/geo_search/filtering)**: Filter results within a rectangular geographic area
+- **[Geo sorting](/products/geo_search/sorting)**: Order results based on distance from a geographic point
+- **[Geo distance](/products/geo_search/sorting)**: Calculate distance between a result's location and a reference point
+- **[Preparing geo documents](/products/geo_search/preparing_documents)**: Index documents with `_geo` field for location-based features
+
+## Database
+
+### Document database
+
+- **Schemaless database**: Index documents without a predefined schema
+- **[Searchable attributes](/products/full_text_search/displayed_searchable_attributes)**: Configure which fields are searchable and their priority order
+- **[Displayed attributes](/products/full_text_search/displayed_searchable_attributes)**: Control which fields are returned in search results
+- **[Filterable attributes](/products/faceted_search/filter_search_results)**: Define which fields can be used in filters
+- **[Sortable attributes](/products/faceted_search/sort_search_results)**: Define which fields can be used for sorting
+- **[Filtering](/products/faceted_search/filter_search_results)**: Complex filtering on documents based on various conditions
+- **[Filter on string or number](/products/faceted_search/filter_expression_reference)**: Filter using string or numeric fields
+- **[Filter nested fields](/products/faceted_search/filter_expression_reference)**: Apply filters on nested fields within arrays or JSON objects
+- **[Complex expressions (AND/OR)](/products/faceted_search/filter_expression_reference)**: Combine multiple conditions with unlimited logical complexity
+- **[Basic operators](/products/faceted_search/filter_expression_reference)**: `=`, `!=`, `>`, `>=`, `<`, `<=`, `TO`, `EXISTS`, `NOT`
+- **[Advanced operators](/products/faceted_search/filter_expression_reference)**: `IN`, `STARTS WITH`, `CONTAINS`
+- **[Search result snippets](/products/full_text_search/search_result_formatting)**: Return excerpts matching search queries for context
+- **Update documents by function**: Partial updates to documents based on specific fields or functions
+- **Delete documents by filter**: Delete documents matching a specified filter
+- **[Add/replace/modify documents](/reference/api/documents/overview)**: Add new documents, replace existing ones, or modify specific fields
+- **[Index swap](/products/platform/index_swapping)**: Swap entire indexes to perform updates without downtime
+- **[Multi-tenancy](/products/platform/multitenancy_tenant_tokens)**: Index and search for multiple independent users within the same index
+- **[Index compaction](/products/platform/compaction)**: Reclaim disk space by removing internal fragmentation
+
+### Vector database
+
+- **[Similar documents](/products/hybrid_search/retrieve_related_search_results)**: Find semantically similar documents using vector embeddings
+- **Binary quantization**: Compress vectors using binary quantization to save storage
+- **DiskANN**: Disk-based approximate nearest neighbors search for large datasets
+- **[Auto embedding](/products/hybrid_search/choose_an_embedder)**: Automatically generate embeddings without manual input
+- **[Embedding templates](/products/hybrid_search/document_template_best_practices)**: Define templates for generating embeddings based on specific criteria
+- **[Multiple embedders per document](/products/hybrid_search/choose_an_embedder)**: Use multiple embedding models for a single document
+- **[Local embedder (HuggingFace)](/guides/ai_embedders/providers/huggingface)**: Generate embeddings using local HuggingFace models
+- **[OpenAI embedder](/guides/ai_embedders/providers/openai)**: Generate embeddings using OpenAI models
+- **[Cohere embedder](/guides/ai_embedders/providers/cohere)**: Generate embeddings using Cohere models
+- **[Mistral embedder](/guides/ai_embedders/providers/mistral)**: Generate embeddings using Mistral models
+- **[Voyage embedder](/guides/ai_embedders/providers/voyage)**: Generate embeddings using Voyage AI models
+- **[Gemini embedder](/guides/ai_embedders/providers/gemini)**: Generate embeddings using Google Gemini models
+- **[Cloudflare embedder](/guides/ai_embedders/providers/cloudflare)**: Generate embeddings using Cloudflare Workers AI
+- **[Ollama embedder](/products/hybrid_search/choose_an_embedder)**: Generate embeddings using Ollama
+- **[REST embedder](/products/hybrid_search/configure_rest_embedder)**: Generate embeddings via external APIs with JSON configuration
+- **Auto retry and batching**: Automatically retry failed embedding requests and batch for efficiency
+- **Embedding distribution**: Distribute embedding requests across multiple endpoints for scalability
+- **[User-provided vectors](/products/hybrid_search/search_with_user_provided_embeddings)**: Provide your own pre-generated vectors for documents
+
+<Note>
+The local HuggingFace embedder is not available on Meilisearch Cloud. Use the [REST embedder](/products/hybrid_search/configure_rest_embedder) to connect to HuggingFace models hosted externally.
+</Note>
+
+### Security and keys
+
+- **[API keys](/products/platform/basic_security)**: Admin, search, and chat key types for different access levels
+- **[API key permissions](/products/platform/api_key_permissions)**: Fine-grained control over which actions each key can perform
+- **[Tenant tokens](/products/platform/multitenancy_tenant_tokens)**: Access control for multi-tenant applications
+- **[Static filters for document-level security](/products/platform/tenant_token_reference)**: Enforce document-level security with static filters on tenant tokens
+- **[Filter per index](/products/platform/tenant_token_reference)**: Configure tenant tokens with index-specific filters
+- **[Scoped keys](/products/platform/api_key_permissions)**: Limit API key scope by action, index, or expiration
+- **HTTPS embedded**: Built-in HTTPS support for secure client-server communication
+
+### Tasks
+
+- **[Autobatching](/products/platform/batches)**: Automatically group tasks into batches for efficient processing
+- **Limit batch size**: Set a limit on the number of tasks within a batch
+- **Task reordering**: Optimize task order to improve performance and reduce latency
+- **[Cancel tasks](/products/platform/tasks)**: Cancel scheduled or in-progress tasks
+- **Diff indexing**: Only index differences between datasets, minimizing update processing time
+- **[Async operations](/products/platform/tasks)**: Tasks run in the background without blocking the main workflow
+- **[Batch debugging](/products/platform/batch_debugging)**: Inspect batch progress, failures, and processing details
+- **[Webhooks](/products/platform/webhooks)**: Trigger external webhooks on task completion or events
+
+## Cloud
+
+<Note>
+The following features are available exclusively on [Meilisearch Cloud](https://cloud.meilisearch.com).
+</Note>
+
+### Analytics
+
+#### Usage analytics
+
+- **[Total searches](/products/analytics/search_analytics)**: Total number of search queries performed
+- **[Total users](/products/analytics/search_analytics)**: Total unique users interacting with search
+- **[No result rate](/products/analytics/search_analytics)**: Percentage of searches returning no results
+- **[Most searched queries](/products/analytics/search_analytics)**: Most frequently searched terms
+- **[Searches with no results](/products/analytics/search_analytics)**: Specific queries that returned no results
+- **Countries with most searches**: Geographic distribution of searches by country
+
+#### Behavior analytics
+
+- **[Click-through rate](/products/analytics/track_click_events)**: Percentage of search results users clicked on
+- **[Average click position](/products/analytics/track_click_events)**: Average position of clicked results
+- **[Conversion rate](/products/analytics/track_conversion_events)**: Percentage of searches leading to a desired action
+- **[Custom events](/products/analytics/track_custom_events)**: Track arbitrary events with custom data for advanced analytics
+
+<Info>
+Behavior analytics require client-side event configuration. See [Bind events to a user](/products/analytics/bind_events_user) to get started.
+</Info>
+
+#### Monitoring metrics
+
+- **[Search latency](/products/analytics/analytics_metrics_reference)**: Time to return search results
+- **[Max search queries per second](/products/analytics/analytics_metrics_reference)**: Peak number of queries handled per second
+- **[Indexing latency](/products/analytics/analytics_metrics_reference)**: Time taken to index new or updated documents
+- **Bandwidth usage**: Total data transferred during searches and indexing
+- **API call health monitor**: Health and performance tracking of API calls
+
+### Crawler
+
+- **Fast crawling**: Crawl pages quickly by fetching content without executing JavaScript
+- **JS crawling**: Load JavaScript during crawling to extract dynamically rendered content
+- **Complex crawling rules**: Customize crawling behavior and indexing logic
+- **Normal mode**: Index content by blocks or sections within pages
+- **Schema mode**: Index Schema.org metadata with date conversion and type filtering
+- **DocSearch mode**: Fully compatible with DocSearch tooling for documentation sites
+- **Markdown mode**: Extract page content and convert to Markdown for use with LLMs
+- **Custom scraping**: Create custom scrapers for tailored crawling
+- **Page metadata indexing**: Capture and index metadata from web pages
+- **Automatic pagination detection**: Detect and handle pagination to index all content across multi-page documents
+
+### Search Preview
+
+The Cloud Search Preview replaces the open-source mini-dashboard with extended capabilities:
+
+- Filtering and sorting
+- Hybrid search
+- Document CRUD operations
+- Advanced search parameter configuration
+
+### Teams and organizations
+
+- **[Teams](/products/platform/teams)**: Organize projects and members into team workspaces
+- **Team roles**: Owner and member roles with different permission levels
+- **[Organizations](/products/platform/teams)**: Group multiple teams under a single entity with centralized billing
+- **[Billing management](/products/platform/billing)**: Manage subscription plans and payment across teams
+
+### Enterprise security
+
+- **[SSO (SAML 2.0)](/products/platform/sso_and_scim)**: Single sign-on with Okta, Azure AD, Google Workspace, OneLogin, JumpCloud, PingIdentity
+- **[SCIM provisioning](/products/platform/sso_and_scim)**: Automated user provisioning and deprovisioning across identity providers
+
+### Infrastructure
+
+- **[Autoscale disk](/products/platform/infrastructure)**: Automatically scale storage as data grows
+- **[Resource scaling](/products/platform/infrastructure)**: Adjust CPU and memory based on system load
+- **Custom payload size**: Adjust maximum data payload size
+- **Custom batch limits**: Configure maximum processing tasks in a batch
+- **Custom indexing threads**: Set the number of threads for indexing operations
+- **Custom indexing memory**: Limit memory allocated for indexing tasks
+- **Custom search queue size**: Define maximum search request queue size
+- **High availability**: Stateless machines that can be replaced or scaled without data loss
+- **Up to 99.999% SLA**: Industry-leading service level agreement
+- **One-click upgrade**: Upgrade Meilisearch version with a single click
+- **Automatic backups**: Automatic backups for data safety and recoverability
+- **Prometheus/Grafana endpoint**: Real-time monitoring of system metrics and performance
+- **Optimized machines**: Machines optimized for search and indexing workloads
+- **SSL**: Secure data transmission with SSL encryption
+- **5 default regions (30 total)**: Global distribution across up to 30 cloud regions
+
+### Support
+
+- **Slack channel**: Real-time support through a dedicated Slack channel
+- **Onboarding sessions**: Review sessions to ensure proper configuration for production
+- **Migration support**: Assistance migrating from Algolia, Elasticsearch, MongoDB, or Postgres
+- **Review sessions**: Strategic sessions to optimize performance or search relevancy
+- **SLA: high severity**: 1-hour response time for critical issues
+- **SLA: medium severity**: 24-hour response time for moderate issues
+- **SLA: low severity**: 1 business day response time for non-urgent issues
+- **Customer advisory board**: Provide feedback and influence future product development
+
+## Self-hosting
+
+These features are available when running Meilisearch on your own infrastructure. See [Getting started with self-hosting](/resources/self_hosting/getting_started).
+
+### Data backup
+
+- **[Snapshots](/resources/self_hosting/data_backup/snapshots)**: Full binary copies of the database for fast restoration
+- **Scheduled snapshots**: Automatically create snapshots at regular intervals
+- **[Dumps](/resources/self_hosting/data_backup/dumps)**: Portable JSON exports for migration between versions or instances
+- **[Snapshots vs. dumps](/resources/self_hosting/data_backup/snapshots_vs_dumps)**: Choose the right backup strategy for your use case
+
+### Configuration
+
+- **[Command-line options](/resources/self_hosting/configuration)**: Configure Meilisearch via CLI flags
+- **[Environment variables](/resources/self_hosting/configuration)**: Configure Meilisearch via environment variables
+- **[Master key](/resources/self_hosting/security/master_api_keys)**: Secure your instance with a master key that generates admin and search API keys
+- **[HTTP/2 and SSL](/resources/self_hosting/security/http2_ssl)**: Configure HTTPS with SSL certificates for secure communication
+- **[HuggingFace GPU support](/resources/self_hosting/huggingface_gpu)**: Accelerate embedding generation with CUDA or ROCm GPU support
+
+### Performance
+
+- **[RAM and multithreading](/resources/self_hosting/performance/ram_multithreading)**: Optimize memory usage and CPU thread allocation
+
+### Deployment
+
+- **[AWS](/resources/self_hosting/deployment/aws)**: Deploy on Amazon Web Services
+- **[GCP](/resources/self_hosting/deployment/gcp)**: Deploy on Google Cloud Platform
+- **[Azure](/resources/self_hosting/deployment/azure)**: Deploy on Microsoft Azure
+- **[DigitalOcean](/resources/self_hosting/deployment/digitalocean)**: Deploy on DigitalOcean
+
+## Integrations and SDKs
+
+### Official SDKs
+
+- **PHP SDK**: [Quick start](/getting_started/sdks/php)
+- **Python SDK**: [Quick start](/getting_started/sdks/python)
+- **JavaScript SDK**: [Quick start](/getting_started/sdks/javascript)
+- **Ruby SDK**: [Quick start](/getting_started/sdks/ruby)
+- **Go SDK**: [Quick start](/getting_started/sdks/go)
+- **Java SDK**: [Quick start](/getting_started/sdks/java)
+- **Dart SDK**: [Quick start](/getting_started/sdks/dart)
+- **Swift SDK**: [Quick start](/getting_started/sdks/swift)
+- **C# SDK**: [Quick start](/getting_started/sdks/dotnet)
+- **Rust SDK**: [Quick start](/getting_started/sdks/rust)
+
+### Frontend integrations
+
+- **[InstantSearch (JavaScript)](/getting_started/instant_meilisearch/javascript)**: Pre-built search UI components for vanilla JavaScript
+- **[InstantSearch (React)](/getting_started/instant_meilisearch/react)**: Search UI components for React applications
+- **[InstantSearch (Vue)](/getting_started/instant_meilisearch/vue)**: Search UI components for Vue applications
+- **[DocSearch](/getting_started/instant_meilisearch/docsearch)**: Drop-in search for documentation sites
+
+### Framework integrations
+
+- **[Laravel](/getting_started/frameworks/laravel)**: Laravel Scout integration
+- **[Rails](/getting_started/frameworks/rails)**: Ruby on Rails integration
+- **[Symfony](/getting_started/frameworks/symfony)**: Symfony integration
+- **[Strapi](/getting_started/frameworks/strapi)**: Strapi CMS plugin
+
+### Tools and services
+
+- **[Vercel](/getting_started/integrations/vercel)**: One-click integration with automatic environment variable configuration
+- **[Firebase](/getting_started/integrations/firebase)**: Sync Firestore data to Meilisearch
+- **[Gatsby](/getting_started/integrations/gatsby)**: Index Gatsby site content for search
+- **[Postman](/getting_started/integrations/postman)**: API collection for testing Meilisearch endpoints
+- **[Meilisync](/getting_started/integrations/meilisync)**: Real-time data synchronization from databases to Meilisearch
+- **[Meilisearch Importer](/getting_started/integrations/meilisearch_importer)**: Bulk import tool for CSV, JSON, and NdJSON files
+
+For a complete list of SDKs and community integrations, see [SDKs](/resources/help/sdks).

@@ -404,6 +404,12 @@
         "tab": "References",
         "groups": [
           {
+            "group": "Capabilities",
+            "pages": [
+              "reference/capabilities"
+            ]
+          },
+          {
             "group": "API Reference",
             "pages": [
               "reference/api/overview",

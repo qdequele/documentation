@@ -1,9 +1,6 @@
----
-title: "Changelog"
-description: "New features and improvements in Meilisearch"
----
+# v1.35
 
-<Update label="v1.35" description="2026-02-02">
+First released: 2026-02-02
 
 ## New Features
 
@@ -154,9 +151,11 @@ The `POST /indexes/<index_uid>/fields` route now returns a structured object ins
 }
 ```
 
-</Update>
+---
 
-<Update label="v1.34" description="2026-01-26">
+# v1.34
+
+First released: 2026-01-26
 
 ## New Features
 
@@ -224,9 +223,11 @@ A low-severity timing attack vulnerability on key comparison has been addressed 
 ### Breaking Change: Security Restrictions on Non-Global IPs
 A breaking change has been introduced to enhance security by forbidding requests to non-global IP addresses. You can allow specific non-global IP networks using the `--experimental-allowed-ip-networks` parameter or the `MEILI_EXPERIMENTAL_ALLOWED_IP_NETWORKS` environment variable. The default behavior is to reject all such requests.
 
-</Update>
+---
 
-<Update label="v1.33" description="2026-01-19">
+# v1.33
+
+First released: 2026-01-19
 
 ## New Features
 
@@ -249,9 +250,11 @@ A fix has been implemented to ensure that all non-blocking buckets are considere
 ### Security Fix for Dump Import
 A security vulnerability related to path traversal in the dump import functionality has been addressed. Open-source users who allow importing dumps from untrusted sources are advised to update to v1.33.1 to mitigate this risk. Cloud users do not need to take any action as there is no evidence of exploitation on Meilisearch Cloud.
 
-</Update>
+---
 
-<Update label="v1.32" description="2026-01-12">
+# v1.32
+
+First released: 2026-01-12
 
 ## Improvements
 
@@ -278,9 +281,11 @@ A bug has been fixed where changing `searchableAttributes` from `["*"]` to a sub
 ### Graph Link Rebuilding
 The upgrade process now includes a method to rebuild graph links, addressing previously malformed graphs and ensuring proper association of related operations during upgrades.
 
-</Update>
+---
 
-<Update label="v1.31" description="2025-12-22">
+# v1.31
+
+First released: 2025-12-22
 
 ## Improvements
 
@@ -302,9 +307,11 @@ POST /indexes/{index}/documents?skipCreation=true
 ### Breaking Change: S3-Streaming Snapshots
 The S3-streaming snapshot feature is no longer available in the Community Edition, marking a significant change in how snapshots can be managed. Users of the Community Edition who were using this feature between version 1.25 and this release will need to transition to the Enterprise Edition to continue using it.
 
-</Update>
+---
 
-<Update label="v1.30" description="2025-12-15">
+# v1.30
+
+First released: 2025-12-15
 
 ## New Features
 
@@ -366,9 +373,11 @@ Several breaking changes have been introduced for users of the experimental `net
 
 These changes are crucial for users utilizing the network feature, as they affect how tasks and network configurations are managed.
 
-</Update>
+---
 
-<Update label="v1.29" description="2025-12-08">
+# v1.29
+
+First released: 2025-12-08
 
 ## New Features
 
@@ -397,9 +406,11 @@ The `git` binary is now required at build time to populate the `commitSha1` fiel
 ### Asset Availability Note
 The Meilisearch binary is currently unavailable for `meilisearch-enterprise-macos-amd64` and `meilisearch-macos-amd64` due to a compilation oversight. However, the binaries for `meilisearch-enterprise-macos-apple-silicon` and `meilisearch-macos-apple-silicon` are available.
 
-</Update>
+---
 
-<Update label="v1.28" description="2025-12-01">
+# v1.28
+
+First released: 2025-12-01
 
 ## Improvements
 
@@ -420,9 +431,11 @@ A fix has been implemented to ensure that documents without the sortable attribu
 ### Separation of Community and Enterprise Editions
 The release separates the community and enterprise binary editions. Binaries are now available under the BUSL-1.1 license for the enterprise edition, while the community edition remains under the MIT license. Docker images for the enterprise edition can be found in the `getmeili/meilisearch-enterprise` repository.
 
-</Update>
+---
 
-<Update label="v1.27" description="2025-11-24">
+# v1.27
+
+First released: 2025-11-24
 
 ## Improvements
 
@@ -437,9 +450,11 @@ The default total size for batched tasks is now set to half of the maximum index
 ### Compatibility Support for macOS
 Meilisearch binaries for macOS are now generated with support for macOS Sonoma (`macos-14`). This ensures compatibility with the latest macOS version for users on that platform.
 
-</Update>
+---
 
-<Update label="v1.26" description="2025-11-17">
+# v1.26
+
+First released: 2025-11-17
 
 ## New Features
 
@@ -538,9 +553,11 @@ You can now control the timeout duration for REST embedder requests. OSS users c
 ### Removal of Unused Dependency
 The unused dependency `allocator-api2` has been removed from the project.
 
-</Update>
+---
 
-<Update label="v1.25" description="2025-11-10">
+# v1.25
+
+First released: 2025-11-10
 
 ## New Features
 
@@ -575,9 +592,11 @@ After: ["我", "从", "2025", "年", "开始", "学习", "Rust", "语言", "。"
 ### Breaking Change: Redaction of Authorization Header
 The `Authorization` header value is now redacted in webhooks. This change means that users will no longer receive the key value when retrieving webhooks, enhancing security. Ensure that your UI does not send the `Authorization` header back after it has been redacted.
 
-</Update>
+---
 
-<Update label="v1.24" description="2025-10-20">
+# v1.24
+
+First released: 2025-10-20
 
 ## New Features
 
@@ -621,9 +640,11 @@ The behaviors around compaction have been enhanced, leading to a more reliable i
 ## Other
 No breaking changes or deprecations were noted in this release.
 
-</Update>
+---
 
-<Update label="v1.23" description="2025-10-13">
+# v1.23
+
+First released: 2025-10-13
 
 ## New Features
 
@@ -655,9 +676,11 @@ The release drafter has been removed, and users are encouraged to utilize GitHub
 
 If there's no relevant changelog content (only bug fixes, maintenance, etc.), return an empty string.
 
-</Update>
+---
 
-<Update label="v1.22" description="2025-09-24">
+# v1.22
+
+First released: 2025-09-24
 
 ## New Features
 
@@ -677,9 +700,11 @@ A new geo backend has been introduced to store GeoJSON data and filter on polygo
 ### Migration Note for Remote Federated Search Users
 If you are not a remote federated search user, it is not necessary to migrate from v1.22.x.
 
-</Update>
+---
 
-<Update label="v1.21" description="2025-09-15">
+# v1.21
+
+First released: 2025-09-15
 
 ## New Features
 
@@ -703,9 +728,11 @@ The new vector store backend provides improved performance, making it more effic
 
 If there's no relevant changelog content (only bug fixes, maintenance, etc.), return an empty string.
 
-</Update>
+---
 
-<Update label="v1.20" description="2025-09-08">
+# v1.20
+
+First released: 2025-09-08
 
 ## Improvements
 
@@ -714,9 +741,11 @@ You can now view the `progressTrace` for in-progress batches, providing better v
 
 If there's no relevant changelog content (only bug fixes, maintenance, etc.), return an empty string.
 
-</Update>
+---
 
-<Update label="v1.19" description="2025-08-25">
+# v1.19
+
+First released: 2025-08-25
 
 ## New Features
 
@@ -749,9 +778,11 @@ Example of a hybrid search with a filter:
 ### Sharding Availability
 The new sharding feature is available exclusively in the Meilisearch Enterprise Edition (EE). It is governed by the Business Source License 1.1, allowing free use in non-production environments. Users should contact Meilisearch before deploying it in production.
 
-</Update>
+---
 
-<Update label="v1.18" description="2025-08-18">
+# v1.18
+
+First released: 2025-08-18
 
 ## New Features
 
@@ -772,9 +803,11 @@ No notable improvements were mentioned in this release.
 
 No breaking changes or deprecations were noted in this release.
 
-</Update>
+---
 
-<Update label="v1.17" description="2025-08-12">
+# v1.17
+
+First released: 2025-08-12
 
 ## New Features
 
@@ -797,9 +830,11 @@ The Docker image is now signed using Cosign in keyless mode, enhancing the secur
 ### Breaking Change: Chat Settings Update
 The chat settings endpoint has changed from `PUT` to `PATCH`. This means that any integrations or SDKs that rely on the previous method will need to be updated to accommodate this change.
 
-</Update>
+---
 
-<Update label="v1.16" description="2025-08-04">
+# v1.16
+
+First released: 2025-08-04
 
 ## New Features
 
@@ -969,9 +1004,11 @@ A Read-Only Admin key will be created in new empty databases to prevent accident
 - The introduction of the new `/export` route may require adjustments in how data is managed between instances.
 - A fallback instance option has been added to revert to the old indexer, which may affect existing configurations.
 
-</Update>
+---
 
-<Update label="v1.15" description="2025-06-09">
+# v1.15
+
+First released: 2025-06-09
 
 ## New Features
 
@@ -1058,9 +1095,11 @@ Support for EC private keys as SSL certificates has been added, enhancing securi
 ### CLI Option for Snapshot Compaction
 A new CLI option allows users to stop compacting snapshots, which can speed up their generation.
 
-</Update>
+---
 
-<Update label="v1.14" description="2025-04-14">
+# v1.14
+
+First released: 2025-04-14
 
 ## New Features
 
@@ -1237,9 +1276,11 @@ You can now accept cancellation tasks even when the disk is full, enhancing task
 ## Other
 No breaking changes or deprecations were noted in this release.
 
-</Update>
+---
 
-<Update label="v1.13" description="2025-02-17">
+# v1.13
+
+First released: 2025-02-17
 
 ## New Features
 
@@ -1341,9 +1382,11 @@ The `/stats` route now exposes information about embeddings, enhancing monitorin
  - `invalid_embedder` is now split into `invalid_search_embedder` and `invalid_similar_embedder`.
  - `invalid_hybrid_query` has been renamed to `invalid_search_hybrid_query`.
 
-</Update>
+---
 
-<Update label="v1.12" description="2024-12-23">
+# v1.12
+
+First released: 2024-12-23
 
 ## New Features
 
@@ -1402,9 +1445,11 @@ Error messages have been enhanced to include more context, such as the index nam
 ### Breaking Change: `vectorStore`
 The field distribution no longer contains `_vectors`. This change was made to correct an issue with incorrect values and to streamline the data structure.
 
-</Update>
+---
 
-<Update label="v1.11" description="2024-10-28">
+# v1.11
+
+First released: 2024-10-28
 
 ## New Features
 
@@ -1529,9 +1574,11 @@ curl \
 ### Deprecations
 - The previous document template format will continue to work, but new features will only be available with the updated template that filters out non-searchable fields.
 
-</Update>
+---
 
-<Update label="v1.10" description="2024-08-26">
+# v1.10
+
+First released: 2024-08-26
 
 ## New Features
 
@@ -1648,9 +1695,11 @@ They have been replaced with:
 ### Important Change: Minimum Ubuntu Version
 Meilisearch is now only compatible with Ubuntu 20.04 and later due to changes in the GitHub Actions runner.
 
-</Update>
+---
 
-<Update label="v1.9" description="2024-07-01">
+# v1.9
+
+First released: 2024-07-01
 
 ## New Features
 
@@ -1777,9 +1826,11 @@ curl \
 ### Breaking Change: Canonical Representation of Embeddings
 Meilisearch now returns embeddings in a canonicalized format rather than the user-provided representation, which may affect how embeddings are stored and displayed.
 
-</Update>
+---
 
-<Update label="v1.8" description="2024-05-06">
+# v1.8
+
+First released: 2024-05-06
 
 ## New Features
 
@@ -1878,9 +1929,11 @@ To enhance performance, the following fields will no longer be included in searc
 
 These changes are aimed at improving search response times and reducing bandwidth usage.
 
-</Update>
+---
 
-<Update label="v1.7" description="2024-03-11">
+# v1.7
+
+First released: 2024-03-11
 
 ## New Features
 
@@ -1964,9 +2017,11 @@ A security flaw in the implementation of HTTP/2 has been addressed to prevent po
 ### Fix for Nested Attributes Reindexing
 A regression that prevented reindexing when adding sortable and filterable nested attributes has been fixed.
 
-</Update>
+---
 
-<Update label="v1.6" description="2024-01-15">
+# v1.6
+
+First released: 2024-01-15
 
 ## New Features
 
@@ -2060,9 +2115,11 @@ If you have used vector search between v1.3.0 and v1.5.0, note the following cha
 "_vectors": [ [0.0, 0.1] ] // ❌
 ```
 
-</Update>
+---
 
-<Update label="v1.5" description="2023-11-20">
+# v1.5
+
+First released: 2023-11-20
 
 ## New Features
 
@@ -2107,9 +2164,11 @@ The `meilitool` command line interface is now integrated into the Meilisearch Do
 ### Experimental `/metrics` Route Activation
 The experimental `/metrics` route can now be activated via HTTP requests. Note that you should avoid using the CLI flag and the API simultaneously when managing experimental features.
 
-</Update>
+---
 
-<Update label="v1.4" description="2023-09-25">
+# v1.4
+
+First released: 2023-09-25
 
 ## New Features
 
@@ -2193,9 +2252,11 @@ path = "my\\\\test\\\\path\\\\"
 
 This change allows for more accurate filtering but requires users to adjust their existing filter expressions if they previously used backslashes. If you need assistance with this change, please reach out for support.
 
-</Update>
+---
 
-<Update label="v1.3" description="2023-07-31">
+# v1.3
+
+First released: 2023-07-31
 
 ## New Features
 
@@ -2305,9 +2366,11 @@ The `/tasks` route now includes a `total` property that displays the total numbe
 ### Reversion of Filter Escaping Fix
 This release reverts a previous fix related to filter escaping that introduced breaking changes. If your filters were working correctly in versions v1.3.3 or v1.3.4, there is no need to upgrade to v1.3.5.
 
-</Update>
+---
 
-<Update label="v1.2" description="2023-06-05">
+# v1.2
+
+First released: 2023-06-05
 
 ## New Features
 
@@ -2404,9 +2467,11 @@ After upgrading to v1.2.1, you must re-index your dataset. The easiest way to do
  POST /dumps/import
  ```
 
-</Update>
+---
 
-<Update label="v1.1" description="2023-04-03">
+# v1.1
+
+First released: 2023-04-03
 
 ## New Features
 
@@ -2536,9 +2601,11 @@ Index statistics results are now cached for improved performance.
 - The auto-batching of additions and deletions has been disabled to address issues with task queue management.
 - If you encountered issues with version v1.1.0, it may indicate a corrupted database. Users are advised to recreate their indexes and re-upload documents, as using a dump will not resolve the issue.
 
-</Update>
+---
 
-<Update label="v1.0" description="2023-02-06">
+# v1.0
+
+First released: 2023-02-06
 
 ## New Features
 
@@ -2578,9 +2645,11 @@ Meilisearch will now attempt to infer the primary key from attributes ending wit
 ### Binary Name Change
 The command to install the Meilisearch binary using `apt` has changed to `apt install meilisearch`. For versions prior to v1.0, continue using `apt install meilisearch-http`.
 
-</Update>
+---
 
-<Update label="v0.30" description="2022-11-28">
+# v0.30
+
+First released: 2022-11-28
 
 ## New Features
 
@@ -2686,9 +2755,11 @@ The maximum number of concurrent readers has been increased from 126 to 1024, al
  - `type` to `types`
  - `status` to `statuses`
 
-</Update>
+---
 
-<Update label="v0.29" description="2022-10-03">
+# v0.29
+
+First released: 2022-10-03
 
 ## New Features
 
@@ -2738,9 +2809,11 @@ The auto-batching feature is now enabled by default, which should enhance indexi
 ### Database Corruption Warning
 If you encounter issues after upgrading to v0.29.3, it may indicate that your database is corrupted. In such cases, you will need to re-upload your documents to a fresh index, as using a dump will not resolve the issue.
 
-</Update>
+---
 
-<Update label="v0.28" description="2022-07-11">
+# v0.28
+
+First released: 2022-07-11
 
 ## New Features
 
@@ -2813,9 +2886,11 @@ The `apiKeyPrefix` has been renamed to `apiKeyUid`, and it is no longer possible
 ### Changes to Dumps
 Dump creation is now an asynchronous task, and the endpoint for checking dump status has been removed. You can now check the status of dump tasks using the `GET /tasks?type=dumpCreation` endpoint.
 
-</Update>
+---
 
-<Update label="v0.27" description="2022-05-09">
+# v0.27
+
+First released: 2022-05-09
 
 ## New Features
 
@@ -2886,9 +2961,11 @@ docker run -it --rm \
 docker run -it --rm -p 7700:7700 getmeili/meilisearch:latest meilisearch --no-analytics
 ```
 
-</Update>
+---
 
-<Update label="v0.26" description="2022-03-14">
+# v0.26
+
+First released: 2022-03-14
 
 ## New Features
 
@@ -2934,9 +3011,11 @@ meilisearch --no-analytics
 ### Removal of armv8 Binary
 The armv8 binary has been removed from the release assets. Users should now use the aarch64 binary instead.
 
-</Update>
+---
 
-<Update label="v0.25" description="2022-01-11">
+# v0.25
+
+First released: 2022-01-11
 
 ## New Features
 
@@ -2989,9 +3068,11 @@ MeiliSearch v0.25 and later are not compatible with dumps created prior to v0.22
 ### Docker Image User Change
 The Docker image now runs as `root` instead of the `meili` user, reverting to the behavior from versions prior to v0.24.0. This change affects the default location of `data.ms`.
 
-</Update>
+---
 
-<Update label="v0.24" description="2021-11-16">
+# v0.24
+
+First released: 2021-11-16
 
 ## New Features
 
@@ -3028,9 +3109,11 @@ The overall build size has been optimized, leading to more efficient deployments
 ### Change in Docker User
 When using the Docker image, MeiliSearch now runs as the `meili` user instead of `root`. Consequently, the path for storing `data.ms` has changed from `/data.ms` to `/home/meili/data.ms`.
 
-</Update>
+---
 
-<Update label="v0.23" description="2021-10-11">
+# v0.23
+
+First released: 2021-10-11
 
 ## New Features
 
@@ -3065,9 +3148,11 @@ This release requires re-indexation of all documents. Re-indexation will occur a
 ### Mandatory Content-Type Header
 It is now mandatory to set `Content-Type` headers when using API routes that accept a payload. This change ensures consistent behavior across all relevant routes. If you are using one of the integrations, this change will not impact your code.
 
-</Update>
+---
 
-<Update label="v0.22" description="2021-09-13">
+# v0.22
+
+First released: 2021-09-13
 
 ## New Features
 
@@ -3117,9 +3202,11 @@ Please note that using the new indexer requires re-indexation of all your docume
 ### Breaking Changes
 - The new indexer requires re-indexation of all documents. For more information on updating to the latest version of MeiliSearch, refer to the dedicated guide on updating.
 
-</Update>
+---
 
-<Update label="v0.21" description="2021-08-23">
+# v0.21
+
+First released: 2021-08-23
 
 ## New Features
 
@@ -3208,9 +3295,11 @@ Compilation time has been reduced through the implementation of a caching strate
 - The `MAX_MDB_SIZE` environment variable and `--max-mdb-size` option flag have been renamed to `MAX_INDEX_SIZE` and `--max-index-size`.
 - In the `/version` route, `buildDate` is now named `commitDate`, and the format has changed to ensure MeiliSearch is reproducible.
 
-</Update>
+---
 
-<Update label="v0.20" description="2021-03-30">
+# v0.20
+
+First released: 2021-03-30
 
 ## Other
 
@@ -3220,9 +3309,11 @@ The `/health` route now returns a `200` status code instead of `204`. This chang
 ### Root Route Response Change
 In a production environment, the root route `/` now returns a `200` status code. This update provides clearer feedback about the service status when accessed directly.
 
-</Update>
+---
 
-<Update label="v0.18" description="2021-01-11">
+# v0.18
+
+First released: 2021-01-11
 
 ## New Features
 
@@ -3245,9 +3336,11 @@ A bug related to setting consistency has been addressed, ensuring more reliable 
 ### Attributes to Retrieve Bug Fix
 A fix has been implemented for a bug affecting the retrieval of specific attributes, enhancing the accuracy of search results.
 
-</Update>
+---
 
-<Update label="v0.17" description="2020-12-07">
+# v0.17
+
+First released: 2020-12-07
 
 ## Improvements
 
@@ -3262,9 +3355,11 @@ The script `download-latest.sh` has been improved for better performance and usa
 ### Frontend Disabled in Production
 The frontend is now disabled in production environments to enhance security and performance.
 
-</Update>
+---
 
-<Update label="v0.16" description="2020-11-04">
+# v0.16
+
+First released: 2020-11-04
 
 ## New Features
 
@@ -3276,18 +3371,22 @@ You can now automatically create an index when pushing documents if the index do
 ### Sorted Attributes and Facet Distribution
 The `displayedAttributes` and `facetDistribution` are now sorted, providing a more consistent and predictable output when retrieving these values. This enhancement improves the usability of the API responses.
 
-</Update>
+---
 
-<Update label="v0.15" description="2020-10-05">
+# v0.15
+
+First released: 2020-10-05
 
 ## Improvements
 
 ### Placeholder Search for Empty Queries
 The search functionality now considers an empty query as a placeholder search. This means that if a user submits an empty search, it will return results as if a default search term was used, improving the user experience by providing relevant suggestions or results even when no specific query is entered.
 
-</Update>
+---
 
-<Update label="v0.14" description="2020-08-31">
+# v0.14
+
+First released: 2020-08-31
 
 ## New Features
 
@@ -3307,9 +3406,11 @@ A bug related to the bucket-sort functionality has been resolved, ensuring that 
 ### Version Update
 This release includes updates from version 0.14.0 to 0.14.1, which may include minor adjustments and optimizations.
 
-</Update>
+---
 
-<Update label="v0.13" description="2020-08-03">
+# v0.13
+
+First released: 2020-08-03
 
 ## New Features
 
@@ -3338,9 +3439,11 @@ If enabled, analytics logging will now be performed, allowing for better trackin
 ### Removal of sys-info Route
 The `sys-info` route has been removed. Please update your integrations accordingly.
 
-</Update>
+---
 
-<Update label="v0.11" description="2020-06-15">
+# v0.11
+
+First released: 2020-06-15
 
 ## New Features
 
@@ -3384,9 +3487,11 @@ The HTTP framework has been changed from `tide` to `actix-web`, which may affect
 ### Field Renaming
 The field `fieldsFrequency` has been renamed to `fieldsDistribution` in stats, which may require updates to any scripts or applications relying on the previous field name.
 
-</Update>
+---
 
-<Update label="v0.10" description="2020-04-11">
+# v0.10
+
+First released: 2020-04-11
 
 ## New Features
 
@@ -3430,9 +3535,11 @@ CORS issues have been addressed, improving cross-origin requests.
 ### ARMv7 and ARMv8 Binaries
 ARMv7 and ARMv8 binaries are now published in the releases, expanding compatibility with different architectures.
 
-</Update>
+---
 
-<Update label="v0.8" description="2019-11-26">
+# v0.8
+
+First released: 2019-11-26
 
 ## New Features
 
@@ -3454,6 +3561,3 @@ You can now send updates to the HTTP server without waiting for it to process an
 
 ### Breaking Changes in HTTP APIs
 This release introduces significant changes to many HTTP APIs. Users are encouraged to refer to the updated documentation for guidance on these changes.
-
-</Update>
-
