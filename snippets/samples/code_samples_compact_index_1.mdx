@@ -9,12 +9,20 @@ curl \
 client.index('movies').compact()
 ```
 
+```php PHP
+$client->index('movies')->compact();
+```
+
 ```java Java
 client.index("INDEX_NAME").compact();
 ```
 
 ```ruby Ruby
 client.index('INDEX_UID').compact
+```
+
+```go Go
+client.Index("INDEX_UID").Compact();
 ```
 
 ```rust Rust
